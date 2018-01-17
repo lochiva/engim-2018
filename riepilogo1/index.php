@@ -3,13 +3,20 @@
 
 
 $pages = [
-	['name'=>'comments'],
+	['name'=>'commenti'],
+	['name'=>'variabili'],
+	['name'=>'array'],
 	['name'=>'dichiarazioni'],
 	['name'=>'static'],
 	['name'=>'dichiarazioni'],
 	['name'=>'if'],
-	['name'=>'ciclo'],
-	['name'=>'colori'],
+	['name'=>'for'],
+	['name'=>'while'],
+	['name'=>'foreach'],
+	['name'=>'function'],
+	['name'=>'namespace'],
+
+
 ];
 // controlla che esistano i file
  //&& file_exists("pagine/" . $p . ".php")
@@ -27,16 +34,16 @@ if (!empty($_GET['p'])){
 	$p = trim($_GET['p']);
 }
 
-// verifico che il paramentro passato esista tra le pagine e che esista anche il file 
+// verifico che il paramentro passato esista tra le pagine e che esista anche il file
 if (in_array(['name'=>$p],$pages) ){
 	echo "<h1>$p</h1>";
 
-	
+
 	echo "<h2>esecuzione</h2>";
 	include "pagine/" . $p . ".php";
 	echo "<h2>codice sorgente</h2>";
 	echo highlight_string(file_get_contents("pagine/" . $p . ".php"));
-	
+
 }
 
 
@@ -44,5 +51,3 @@ if (in_array(['name'=>$p],$pages) ){
 
 
 include "footer.php";
-
-
